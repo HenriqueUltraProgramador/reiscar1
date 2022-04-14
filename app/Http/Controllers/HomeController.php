@@ -21,12 +21,10 @@ class HomeController extends Controller
         return view('home');
     }
 
-    //LINK RAIZ METODO dashbord retorna o welcome
     public function dashbord()
     {
         $repositoryCars = new Cars();
         $allCars = $repositoryCars->getCars();
-
-        return view('welcome', ['cars' =>  $allCars]);
+        return view('welcome', ['cars' => $allCars]);
     }
 }
