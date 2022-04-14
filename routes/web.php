@@ -4,7 +4,6 @@ use App\Http\Controllers\CarsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,10 +20,6 @@ Route::get('/', [HomeController::class, 'dashbord'])->name('home.dashbord');
 Route::get('/pt', [HomeController::class, 'index'])->name('home.index');
 Route::get('/en', [HomeController::class, 'index'])->name('home.index');
 
-//chamar logotipo Reis cars
-//Route::get('logo', [LogoController::class,])->name('logo.png');
-
-//Route dos carros
 Route::get('/cars', [CarsController::class, 'index'])->name('cars.index');
 
 //Open specific car
@@ -32,4 +27,13 @@ Route::get('/cars/{id}', [CarsController::class, 'show'])->name('cars.show');
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Route home
+Route::get('/home', [
+    App\Http\Controllers\HomeController::class,
+    'index',
+])->name('home');
+
+//Route do language switcher do navbar (topo)
+Route::get('lang', [LanguageController::class, 'switchLang'])->name(
+    'lang.switch'
+);
