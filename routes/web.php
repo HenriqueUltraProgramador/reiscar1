@@ -25,8 +25,6 @@ Route::get('/cars', [CarsController::class, 'index'])->name('cars.index');
 //Open specific car
 Route::get('/cars/{id}', [CarsController::class, 'show'])->name('cars.show');
 
-Auth::routes();
-
 //Route home
 Route::get('/home', [
     App\Http\Controllers\HomeController::class,
