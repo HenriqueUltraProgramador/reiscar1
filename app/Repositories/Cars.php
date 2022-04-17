@@ -73,9 +73,8 @@ class Cars
                 'price' => $data->car_price ?? 'n/a',
                 'description' => $translation->car_description ?? '',
                 'state' => $translation->cars_state ?? '',
-                'image' => !empty($data->car_photos[0]->directus_files_id->id)
-                    ? $this->pathAssets .
-                        $data->car_photos[0]->directus_files_id->id
+                'image' => !empty($data->car_photos->id)
+                    ? $this->pathAssets . $data->car_photos->id
                     : '',
             ];
             array_push($items, $item);
